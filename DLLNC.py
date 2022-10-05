@@ -15,6 +15,18 @@ class DLLNC:
     def isEmpty(self):
         return self._size == 0
 
+
+    def insert_head(self,nama,ipk):     
+        new_node = NodeMahasiswa(nama,ipk)
+        if(self.isEmpty()):
+            self._head = new_node
+            self._tail = new_node
+            self._tail.next = None
+        else:
+            new_node.next = self._head
+            self._head = new_node
+        self._size += 1
+
     def deleteLast(self, position):
         if self._size == 0:
             return False
@@ -32,26 +44,6 @@ class DLLNC:
             helper.next = delete_node.next
             del delete_node
             self._size = self._size - 1  
-    
-     def cetak(self):
-        p = self.head
-        while p:
-            print("Nama  : {}" .format(p.nama))
-            print("ipk   : {}" .format(p.ipk))
-            print()
-            prev = p.next
-    
-    def insert_head(self,nama,ipk):     
-        new_node = NodeMahasiswa(nama,ipk)
-        if(self.isEmpty()):
-            self._head = new_node
-            self._tail = new_node
-            self._tail.next = None
-        else:
-            new_node.next = self._head
-            self._head = new_node
-        self._size += 1
-            
 
 
 DLLNC = doubleList()
